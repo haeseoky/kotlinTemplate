@@ -9,31 +9,14 @@ import org.springframework.transaction.annotation.Transactional
 import org.springframework.transaction.event.TransactionalEventListener
 
 @Component
-class AppRunner(
+class ApplicationEventPublisherTest(
     private val eventPublisher: EventPublisher,
 ): ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
-        val test = Test1("haeseoky")
-
-        println(test.name)
-        test.name = "haha"
-        println(test.name)
-
-
-        val test2 = Test2()
-        println(test2.name)
-        test2.name = "haha2"
-        println(test2.name)
-
-        val main = Main("main", Sub("sub"))
-        println(main)
 
 //        eventPublisher.eventPublish()
         eventPublisher.transactionalEventPublish()
     }
-
-
-
 }
 
 @Component
@@ -74,18 +57,7 @@ class MyEventListener(){
     }
 }
 
-
 data class Event(
     val name: String,
     val description: String,
-)
-
-data class Main(
-    val name: String,
-    val sub: Sub,
-)
-
-
-data class Sub(
-    val subName: String
 )
