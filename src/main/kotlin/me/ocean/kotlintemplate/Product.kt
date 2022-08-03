@@ -13,7 +13,7 @@ data class Product (
     @field:NotNull
     val price: Double?,
 
-    @field:NotEmpty
+    @field:NotNull
     val tf: Boolean?,
 
     @field:NotNull
