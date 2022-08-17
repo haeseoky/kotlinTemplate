@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.12.RELEASE"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+    kotlin("plugin.jpa") version "1.6.21"
 }
 
 group = "me.ocean"
@@ -26,6 +27,8 @@ dependencies {
 
     runtimeOnly("mysql:mysql-connector-java")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    implementation ("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1")
 }
 
 tasks.withType<KotlinCompile> {
