@@ -1,6 +1,6 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.entitylistener
 
-import me.ocean.kotlintemplate.entity.PersonHistory
+import me.ocean.kotlintemplate.entitylistener.entity.PersonHistory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

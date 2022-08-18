@@ -1,4 +1,4 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.applicationeventpublish
 
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner

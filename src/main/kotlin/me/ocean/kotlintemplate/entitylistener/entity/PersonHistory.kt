@@ -1,4 +1,4 @@
-package me.ocean.kotlintemplate.entity
+package me.ocean.kotlintemplate.entitylistener.entity
 
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime

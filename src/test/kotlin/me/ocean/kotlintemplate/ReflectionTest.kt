@@ -1,5 +1,6 @@
 package me.ocean.kotlintemplate
 
+import me.ocean.kotlintemplate.validation.entity.Product
 import org.junit.jupiter.api.Test
 
 class ReflectionTest {

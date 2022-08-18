@@ -1,6 +1,6 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.entitylistener
 
-import me.ocean.kotlintemplate.entity.Person
+import me.ocean.kotlintemplate.entitylistener.entity.Person
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -10,11 +10,13 @@ class PersonService (
     private val personRepository: PersonRepository,
         ){
     fun create(){
-        personRepository.save(Person(
+        personRepository.save(
+            Person(
             name = "ocean",
             age = 18
 
-        ))
+        )
+        )
     }
 
     fun update(){

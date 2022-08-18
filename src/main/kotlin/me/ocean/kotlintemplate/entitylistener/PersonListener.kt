@@ -1,7 +1,7 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.entitylistener
 
-import me.ocean.kotlintemplate.entity.Person
-import me.ocean.kotlintemplate.entity.PersonHistory
+import me.ocean.kotlintemplate.entitylistener.entity.Person
+import me.ocean.kotlintemplate.entitylistener.entity.PersonHistory
 import javax.persistence.*
 
 

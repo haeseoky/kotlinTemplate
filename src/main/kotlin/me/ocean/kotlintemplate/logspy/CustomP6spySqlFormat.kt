@@ -1,4 +1,4 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.logspy
 
 import com.p6spy.engine.logging.Category
 import com.p6spy.engine.spy.appender.MessageFormattingStrategy

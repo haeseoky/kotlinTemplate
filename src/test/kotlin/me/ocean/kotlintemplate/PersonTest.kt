@@ -1,6 +1,7 @@
 package me.ocean.kotlintemplate
 
-import me.ocean.kotlintemplate.entity.Person
+import me.ocean.kotlintemplate.entitylistener.PersonRepository
+import me.ocean.kotlintemplate.entitylistener.PersonService
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles

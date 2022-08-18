@@ -1,4 +1,4 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.validation.entity
 
 
 import javax.validation.constraints.Max

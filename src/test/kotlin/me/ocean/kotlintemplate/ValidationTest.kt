@@ -2,6 +2,7 @@ package me.ocean.kotlintemplate
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import me.ocean.kotlintemplate.validation.entity.Product
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest

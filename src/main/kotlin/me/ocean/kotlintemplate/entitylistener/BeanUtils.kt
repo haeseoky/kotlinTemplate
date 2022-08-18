@@ -1,4 +1,4 @@
-package me.ocean.kotlintemplate
+package me.ocean.kotlintemplate.entitylistener
 
 import org.springframework.beans.BeansException
 import org.springframework.context.ApplicationContext
