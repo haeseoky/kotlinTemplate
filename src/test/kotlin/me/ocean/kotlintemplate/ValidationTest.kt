@@ -1,33 +1,36 @@
 package me.ocean.kotlintemplate
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import me.ocean.kotlintemplate.validation.entity.Product
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import me.ocean.kotlintemplate.validation.model.Book
+import me.ocean.kotlintemplate.validation.model.Product
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
 
-@WebMvcTest
+@SpringBootTest
 @AutoConfigureMockMvc
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
-internal class ValidationTest (
-    private val  mockMvc: MockMvc
-        ){
+internal class ValidationTest(
+    private val mockMvc: MockMvc,
 
-
-
-    val mapper: ObjectMapper = ObjectMapper().registerModule(JavaTimeModule())
-
+) {
+    val mapper: ObjectMapper = jacksonObjectMapper()
 
     @Test
     fun test1() {
         val param = Product(
-            name = "null", price = 1.0, tf = true, age = 10, list = listOf()
+            name = "null"
         )
+            .apply {
+                book = Book(
+                    name = "null", page = 0
+                )
+            }
 
         val data = mapper.writeValueAsString(param)
         println(data)
@@ -43,4 +46,7 @@ internal class ValidationTest (
 
         println(contentAsString)
     }
+
+
+
 }

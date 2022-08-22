@@ -2,7 +2,7 @@ package me.ocean.kotlintemplate.validation
 
 
 
-import me.ocean.kotlintemplate.validation.entity.Product
+import me.ocean.kotlintemplate.validation.model.Product
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
