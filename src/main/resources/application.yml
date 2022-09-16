@@ -23,6 +23,31 @@ spring:
           release_mode: on_close
           provider_disables_autocommit: true
     show-sql: true
+  cloud:
+    function:
+      definition: producer-invoice-confirmed;consumer-invoice-confirmed
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          min-partition-count: 2
+          auto-add-partitions: true
+          brokers: kafka-event-dev-0.internal.smartfoodnet.io:9092,kafka-event-dev-1.internal.smartfoodnet.io:9092
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+          consumer-properties:
+            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          replication-factor: 1
+      bindings:
+        producer-invoice-confirmed-out-0: # 프로듀서 설정 (BeanName-out-#)
+          destination: fn-invoice.invoice-confirmed  # TopicName (ProjectName.EventName)
+          content-type: application/json
+          producer:
+            partition-count: 2
+        consumer-invoice-confirmed-in-0: # 컨슈머 설정 (BeanName-in-#)
+          destination: fn-invoice.invoice-confirmed
+          content-type: application/json
+          group: test-group
 logging:
   level:
     org.hibernate.type: TRACE
@@ -47,3 +72,20 @@ spring:
   config:
     activate:
       on-profile: prod
+---
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          minPartitionCount: 1
+          autoAddPartitions: true
+          producer-properties:
+            retries: 2
+          brokers: localhost:32789
+          configuration:
+            security:
+              protocol: PLAINTEXT
+  config:
+    activate:
+      on-profile: test-kafka

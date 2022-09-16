@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("kapt") version "1.6.21"
 }
 
 group = "me.ocean"
@@ -16,7 +17,14 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2021.0.1")
+    }
+}
+
 dependencies {
+//    implementation("org.springframework:spring-instrument")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
@@ -30,6 +38,13 @@ dependencies {
 
     implementation ("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-stream-kafka")
+    testImplementation("org.springframework.kafka:spring-kafka-test")
+}
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+    this.archiveFileName.set("app.jar")
 }
 
 tasks.withType<KotlinCompile> {
