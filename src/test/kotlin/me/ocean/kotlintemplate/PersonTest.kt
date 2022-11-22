@@ -7,16 +7,14 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 
-@SpringBootTest
-@ActiveProfiles("local")
-@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
-class PersonTest (
+
+class PersonTest(
     private val personRepository: PersonRepository,
     private val personService: PersonService,
-        ){
+) : AbstractSpringBootTest() {
 
     @Test
-    fun personTest(){
+    fun personTest() {
 //        val person = Person(name = "ocean", age = 20)
         personService.create()
         personService.update()

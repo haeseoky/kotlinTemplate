@@ -10,12 +10,12 @@ class JpaService(
     private val childRepository: ChildRepository
 ) {
 
-    fun save(){
-        val parent = Parent(
-            name = "ocean"
-        )
+    fun saveParent(parent: Parent): Parent {
+        return parentRepository.save(parent)
+    }
 
-        parentRepository.save(parent)
+    fun saveChild(child: Child): Child {
+        return childRepository.save(child)
     }
 
     fun update(id: Long): Parent {

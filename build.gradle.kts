@@ -41,6 +41,8 @@ dependencies {
 
     implementation("org.springframework.cloud:spring-cloud-starter-stream-kafka")
     testImplementation("org.springframework.kafka:spring-kafka-test")
+
+    implementation("com.h2database:h2")
 }
 
 tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
