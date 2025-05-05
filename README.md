@@ -104,7 +104,7 @@ spring:
 
 ## Kafka 설정
 
-Spring Cloud Stream 및 Kafka와 관련된 설정은 다음과 같습니다:
+Spring Cloud Stream 및 Kafka와 관련된 설정 구조는 다음과 같습니다:
 
 ```yaml
 spring:
@@ -115,8 +115,11 @@ spring:
       default-binder: kafka
       kafka:
         binder:
-          brokers: kafka-event-dev-0.internal.smartfoodnet.io:9092,kafka-event-dev-1.internal.smartfoodnet.io:9092
+          # Kafka 브로커 설정 (application.yml에서 각 환경에 맞게 설정)
+          brokers: ${KAFKA_BROKERS}
 ```
+
+실제 환경에서는 `KAFKA_BROKERS` 환경 변수나 각 환경별 설정을 사용하여 브로커 정보를 설정하는 것을 권장합니다.
 
 ## 라이선스
 
