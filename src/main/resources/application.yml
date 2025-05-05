@@ -32,7 +32,7 @@ spring:
         binder:
           min-partition-count: 2
           auto-add-partitions: true
-          brokers: kafka-event-dev-0.internal.smartfoodnet.io:9092,kafka-event-dev-1.internal.smartfoodnet.io:9092
+          brokers: ${KAFKA_BROKERS:localhost:9092}
           producer-properties:
             key.serializer: org.apache.kafka.common.serialization.StringSerializer
           consumer-properties:
@@ -100,7 +100,7 @@ spring:
           autoAddPartitions: true
           producer-properties:
             retries: 2
-          brokers: localhost:32789
+          brokers: ${KAFKA_TEST_BROKERS:localhost:9092}
           configuration:
             security:
               protocol: PLAINTEXT
